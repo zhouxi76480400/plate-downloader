@@ -1,0 +1,79 @@
+/* 全螢幕背景置中 */
+body {
+    background: linear-gradient(135deg, #2c3e50 0%, #000000 100%);
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;    /* 垂直居中 */
+    justify-content: center; /* 水平居中 */
+    font-family: "Roboto", "Noto Sans TC", sans-serif;
+}
+
+/* 右上角固定語言按鈕 */
+.lang-sticky-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 999;
+}
+
+.lang-sticky-btn button {
+    background-color: white !important;
+    color: #3f51b5 !important;
+}
+
+/* --- 自適應卡片設計 --- */
+.central-card {
+    width: 95%;
+    max-width: 480px;
+    background: white;
+    border-radius: 20px;     /* 增加圓角更有現代感 */
+    
+    /* 高度邏輯：內容少時自動撐開，內容多時最高佔螢幕 85% */
+    height: auto;
+    max-height: 85vh; 
+    
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* 內容區域 */
+.tab-content {
+    /* 這裡設為 auto，讓內容決定高度 */
+    flex-grow: 1;
+    overflow-y: auto;        /* 內容超過 85vh 時自動出現滾動條 */
+    padding: 32px !important;
+    position: relative;
+}
+
+/* 載入轉圈圈 */
+#loading-spinner {
+    padding: 40px 0;
+    text-align: center;
+}
+
+/* 選項間距 */
+.option-item {
+    margin: 24px 0;          /* 稍微加大間距，視覺更舒服 */
+}
+
+.option-item label {
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.hidden { display: none !important; }
+
+/* 滾動條美化 (讓它不影響視覺) */
+.tab-content::-webkit-scrollbar {
+    width: 4px;
+}
+.tab-content::-webkit-scrollbar-thumb {
+    background: #e0e0e0;
+    border-radius: 10px;
+}

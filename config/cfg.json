@@ -1,0 +1,51 @@
+{
+    "plate": [
+        {
+            "name": "em60",
+            "caps": {
+                "enabled": true,
+                "types": [
+                    "normal",
+                    "stepped"
+                ]
+            },
+            "bs": {
+                "enabled": true,
+                "types": [
+                    "unified",
+                    "split"
+                ]
+            },
+            "lshift": {
+                "enabled": true,
+                "types": [
+                    "unified",
+                    "split"
+                ]
+            },
+            "rshift": {
+                "enabled": true,
+                "types": [
+                    "unified",
+                    "split"
+                ]
+            },
+            "enter": {
+                "enabled": true,
+                "types": [
+                    "ansi",
+                    "iso"
+                ]
+            },
+            "bottom_row": {
+                "enabled": true,
+                "types": [
+                    "wk",
+                    "wkl",
+                    "hhkb",
+                    "true-hhkb"
+                ]
+            }
+        }
+    ]
+}

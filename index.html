@@ -1,50 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
-<meta charset="UTF-8">
-<title>Metakeeb定位板下載器</title>
-
-<link
-  rel="stylesheet"
-  href="https://unpkg.com/mdui/mdui.css"
-/>
-
-<script src="https://unpkg.com/mdui/mdui.global.js"></script>
-
-<style>
-.tabs-center{
-  display: flex;
-  justify-content: center;
-}
-</style>
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no"/>
+    <title>MTKB EC Plate Downloader</title>
+    <link rel="stylesheet" href="https://unpkg.com/mdui@1.0.2/dist/css/mdui.min.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
 </head>
+<body class="mdui-theme-primary-indigo mdui-theme-accent-pink">
 
-<body>
+    <div class="lang-sticky-btn">
+        <button class="mdui-btn mdui-btn-icon mdui-color-white mdui-ripple mdui-shadow-4" mdui-menu="{target: '#lang-menu'}">
+            <i class="mdui-icon material-icons">language</i>
+        </button>
+        <ul class="mdui-menu" id="lang-menu">
+            <li class="mdui-menu-item"><a href="javascript:void(0);" onclick="changeLang('zh-cn')">简体中文</a></li>
+            <li class="mdui-menu-item"><a href="javascript:void(0);" onclick="changeLang('zh-tw')">繁體中文</a></li>
+            <li class="mdui-menu-item"><a href="javascript:void(0);" onclick="changeLang('en')">English</a></li>
+        </ul>
+    </div>
 
-<div class="tabs-center">
+    <div class="central-card mdui-shadow-12">
+        <div id="tab1" class="mdui-p-a-3 tab-content">
+            <div id="loading-spinner">
+                <div class="mdui-spinner"></div>
+            </div>
 
-<mdui-tabs value="tab1">
+            <form id="config-form" class="hidden">
+                <h2 id="ui-title" class="mdui-text-center mdui-m-t-0 mdui-m-b-3">MTKB</h2>
+                
+                <div class="mdui-m-b-2">
+                    <label id="ui-plate-label" class="mdui-typo-title mdui-text-color-theme">PCB型號</label>
+                    <select class="mdui-select" id="plate-name-select" style="width: 100%"></select>
+                </div>
 
-  <mdui-tab value="tab1">Home</mdui-tab>
-  <mdui-tab value="tab2">Profile</mdui-tab>
-  <mdui-tab value="tab3">Settings</mdui-tab>
+                <div class="mdui-divider mdui-m-y-2"></div>
 
-</mdui-tabs>
+                <div class="mdui-m-b-1">
+                    <label id="ui-params-label" class="mdui-typo-title mdui-text-color-theme">詳細參數</label>
+                    <div id="options-container" class="mdui-m-t-1"></div>
+                </div>
 
-</div>
+                <div class="mdui-m-t-3">
+                    <button type="button" onclick="downloadConfig()" id="ui-download-btn"
+                            class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-btn-block mdui-btn-lg">
+                        下載定位板
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 
-<mdui-tab-panel value="tab1">
-  Home Content
-</mdui-tab-panel>
-
-<mdui-tab-panel value="tab2">
-  Profile Content
-</mdui-tab-panel>
-
-<mdui-tab-panel value="tab3">
-  Settings Content
-</mdui-tab-panel>
-
+    <script src="https://unpkg.com/mdui@1.0.2/dist/js/mdui.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

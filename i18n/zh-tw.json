@@ -1,0 +1,26 @@
+{
+    "ui": {
+        "title": "MTKB 靜電容定位板下載器",
+        "plate_label": "1. PCB 型號",
+        "params_label": "2. 詳細參數",
+        "download_btn": "下載定位板"
+    },
+    "fields": {
+        "caps": "Caps Lock 樣式",
+        "bs": "退格鍵 (BS)",
+        "lshift": "左 Shift",
+        "rshift": "右 Shift",
+        "enter": "回車鍵 (Enter)",
+        "bottom_row": "底排佈局"
+    },
+    "options": {
+        "normal": "標準",
+        "stepped": "階梯式",
+        "ansi": "美規 (ANSI)",
+        "iso": "歐規 (ISO)",
+        "wkl": "大門牙 (WKL)",
+        "hhkb": "HHKB 佈局",
+        "unified": "全高度",
+        "split": "分裂鍵"
+    }
+}
