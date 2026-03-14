@@ -1,11 +1,50 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="https://unpkg.com/mdui@2/mdui.css" />
-    <script src="https://unpkg.com/mdui@2/mdui.global.js"></script>
-  </head>
-  <body>
-    <mdui-button>Hello, world!</mdui-button>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MDUI Tabs Center</title>
+
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/mdui/mdui.css"
+/>
+
+<script src="https://unpkg.com/mdui/mdui.global.js"></script>
+
+<style>
+.tabs-center{
+  display: flex;
+  justify-content: center;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="tabs-center">
+
+<mdui-tabs value="tab1">
+
+  <mdui-tab value="tab1">Home</mdui-tab>
+  <mdui-tab value="tab2">Profile</mdui-tab>
+  <mdui-tab value="tab3">Settings</mdui-tab>
+
+</mdui-tabs>
+
+</div>
+
+<mdui-tab-panel value="tab1">
+  Home Content
+</mdui-tab-panel>
+
+<mdui-tab-panel value="tab2">
+  Profile Content
+</mdui-tab-panel>
+
+<mdui-tab-panel value="tab3">
+  Settings Content
+</mdui-tab-panel>
+
+</body>
 </html>
