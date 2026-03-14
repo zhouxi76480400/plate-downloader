@@ -14,14 +14,14 @@
             <i class="mdui-icon material-icons">language</i>
         </button>
         <ul class="mdui-menu" id="lang-menu">
-            <li class="mdui-menu-item"><a href="javascript:void(0);" onclick="changeLang('zh-cn')">简体中文</a></li>
             <li class="mdui-menu-item"><a href="javascript:void(0);" onclick="changeLang('zh-tw')">繁體中文</a></li>
+            <li class="mdui-menu-item"><a href="javascript:void(0);" onclick="changeLang('zh-cn')">简体中文</a></li>
             <li class="mdui-menu-item"><a href="javascript:void(0);" onclick="changeLang('en')">English</a></li>
         </ul>
     </div>
 
     <div class="central-card mdui-shadow-12">
-        <div id="tab1" class="mdui-p-a-3 tab-content">
+        <div class="mdui-p-a-3 tab-content">
             <div id="loading-spinner">
                 <div class="mdui-spinner"></div>
             </div>
@@ -29,22 +29,21 @@
             <form id="config-form" class="hidden">
                 <h2 id="ui-title" class="mdui-text-center mdui-m-t-0 mdui-m-b-3">MTKB</h2>
                 
-                <div class="mdui-m-b-2">
-                    <label id="ui-plate-label" class="mdui-typo-title mdui-text-color-theme">PCB型號</label>
+                <div class="option-group">
+                    <label id="ui-plate-label" class="mdui-typo-title mdui-text-color-theme">1. PCB型號</label>
                     <select class="mdui-select" id="plate-name-select" style="width: 100%"></select>
                 </div>
 
-                <div class="mdui-divider mdui-m-y-2"></div>
-
-                <div class="mdui-m-b-1">
-                    <label id="ui-params-label" class="mdui-typo-title mdui-text-color-theme">詳細參數</label>
+                <div id="params-section">
+                    <div class="mdui-divider mdui-m-y-2"></div>
+                    <label id="ui-params-label" class="mdui-typo-title mdui-text-color-theme">2. 詳細參數</label>
                     <div id="options-container" class="mdui-m-t-1"></div>
                 </div>
 
                 <div class="mdui-m-t-3">
                     <button type="button" onclick="downloadConfig()" id="ui-download-btn"
                             class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-btn-block mdui-btn-lg">
-                        下載定位板
+                        <i class="mdui-icon material-icons mdui-icon-left">file_download</i> 下載定位板
                     </button>
                 </div>
             </form>
