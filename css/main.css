@@ -22,11 +22,11 @@ body {
 
 .central-card {
     width: 95%;
-    max-width: 480px;
+    max-width: 500px;
     background: white;
-    border-radius: 20px;
+    border-radius: 15px;
     height: auto;
-    max-height: 85vh;
+    max-height: 90vh;
     display: flex;
     flex-direction: column;
     overflow: hidden;

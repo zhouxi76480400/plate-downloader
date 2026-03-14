@@ -2,6 +2,13 @@
     "plate": [
         {
             "name": "em60",
+            "pcb":{
+                "enabled": true,
+                "types": [
+                    "em60v2",
+                    "rbl60ec"
+                ]
+            },
             "caps": {
                 "enabled": true,
                 "types": [

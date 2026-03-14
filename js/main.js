@@ -93,7 +93,7 @@ function renderFields(plate) {
     const paramsSection = document.getElementById('params-section');
     container.innerHTML = '';
 
-    const fieldKeys = ['caps', 'bs', 'lshift', 'rshift', 'enter', 'bottom_row'];
+    const fieldKeys = ['pcb', 'caps', 'bs', 'lshift', 'rshift', 'enter', 'bottom_row'];
 
     // 檢查有無啟用參數
     const hasOptions = fieldKeys.some(key => plate[key] && plate[key].enabled);
