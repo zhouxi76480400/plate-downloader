@@ -3,25 +3,26 @@
         "title": "MTKB EC Plate Downloader",
         "plate_label": "1. PCB Model",
         "params_label": "2. Detailed Parameters",
-        "download_btn": "Download Plate File"
+        "download_btn": "Download Plate",
+        "error_404": "File not found on server. Please check the combination."
     },
     "fields": {
-        "caps": "Caps Lock Style",
-        "bs": "Backspace Style",
-        "lshift": "Left Shift Style",
-        "rshift": "Right Shift Style",
+        "caps": "Caps Lock",
+        "bs": "Backspace",
+        "lshift": "Left Shift",
+        "rshift": "Right Shift",
         "enter": "Enter Type",
-        "bottom_row": "Bottom Row Layout"
+        "bottom_row": "Bottom Row"
     },
     "options": {
         "normal": "Normal",
         "stepped": "Stepped",
         "ansi": "ANSI",
         "iso": "ISO",
-        "wk": "WK (Winkey)",
-        "wkl": "WKL (Winkeyless)",
-        "hhkb": "HHKB Layout",
+        "wkl": "WKL",
+        "hhkb": "HHKB",
         "unified": "Unified",
-        "split": "Split"
+        "split": "Split",
+        "wk": "WK"
     }
 }

@@ -1,15 +1,16 @@
 {
     "ui": {
-        "title": "MTKB静电容定位板下载器",
-        "plate_label": "1. PCB型号",
+        "title": "MTKB 静电容定位板下载器",
+        "plate_label": "1. PCB 型号",
         "params_label": "2. 详细参数",
-        "download_btn": "下载定位板"
+        "download_btn": "下载定位板",
+        "error_404": "服务器上找不到该配置的文件，请确认组合是否正确。"
     },
     "fields": {
         "caps": "Caps Lock 样式",
-        "bs": "退格键 (Backspace)",
-        "lshift": "左 Shift 样式",
-        "rshift": "右 Shift 样式",
+        "bs": "退格键 (BS)",
+        "lshift": "左 Shift",
+        "rshift": "右 Shift",
         "enter": "回车键 (Enter)",
         "bottom_row": "底排布局"
     },
@@ -18,10 +19,10 @@
         "stepped": "阶梯式",
         "ansi": "美规 (ANSI)",
         "iso": "欧规 (ISO)",
-        "wk": "有门牙 (WK)",
         "wkl": "大门牙 (WKL)",
         "hhkb": "HHKB 布局",
         "unified": "全高度",
-        "split": "分裂鍵"
+        "split": "分裂键",
+        "wk": "有门牙 (WK)"
     }
 }
