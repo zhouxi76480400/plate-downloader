@@ -2,7 +2,8 @@
  * MTKB EC Plate Downloader - Maintenance Version
  */
 
-let allPlates = [];
+let allPlates = []
+let allFirmwares = []
 let i18n = {};
 const supportedLangs = ['zh-tw', 'zh-cn', 'en'];
 
@@ -31,18 +32,14 @@ async function initApp() {
 
         if (!cfgRes.ok || !langRes.ok) throw new Error('Load failed');
 
-        allPlates = (await cfgRes.json()).plate;
+        const cfgData = await cfgRes.json();
+        allPlates = cfgData.plate;
+        allFirmwares = cfgData.fw;
         i18n = await langRes.json();
 
         updateUI();
-
-        const nameSelect = document.getElementById('plate-name-select');
-        nameSelect.innerHTML = allPlates.map((p, index) => 
-            `<option value="${index}">${p.name.toUpperCase()}</option>`
-        ).join('');
-
-        nameSelect.onchange = (e) => renderFields(allPlates[e.target.value]);
-        renderFields(allPlates[0]);
+        addPlateOptions();
+        addFirmwareItems();
 
         spinner.classList.add('hidden');
         form.classList.remove('hidden');
@@ -51,13 +48,43 @@ async function initApp() {
     }
 }
 
+function addPlateOptions() {
+    const nameSelect = document.getElementById('plate-name-select');
+    nameSelect.innerHTML = allPlates.map((p, index) =>
+        `<option value="${index}">${p.name.toUpperCase()}</option>`
+    ).join('');
+
+    nameSelect.onchange = (e) => renderFields(allPlates[e.target.value]);
+    renderFields(allPlates[0]);
+}
+
+function addFirmwareItems() {
+    const listContainer = document.getElementById('firmware-list');
+    for (let i = 0; i < allFirmwares.length; i++) {
+        const fw = allFirmwares[i];
+        listContainer.insertAdjacentHTML("beforeend", `
+            <div class="mdui-list-item mdui-ripple" onclick="downloadFW(${i})">
+                <i class="mdui-list-item-icon mdui-icon material-icons">layers</i>
+                    <div class="mdui-list-item-content">
+                        <div class="mdui-list-item-title">${fw.name}</div>
+                        <div class="mdui-list-item-text">${fw.ver} / ${fw.updated}</div>
+                    </div>
+                <i class="mdui-icon material-icons">file_download</i>
+            </div>
+        `);
+    }
+}
+
 function updateUI() {
     document.title = i18n.ui.title;
-    document.getElementById('ui-title').innerText = i18n.ui.title;
+    document.getElementById('ui-tab-plate').innerText = i18n.ui.card_plate;
+    document.getElementById('ui-title').innerText = i18n.ui.card_plate;
     document.getElementById('ui-plate-label').innerText = i18n.ui.plate_label;
     document.getElementById('ui-params-label').innerText = i18n.ui.params_label;
-    document.getElementById('ui-download-btn').innerHTML = 
+    document.getElementById('ui-download-btn').innerHTML =
         `<i class="mdui-icon material-icons mdui-icon-left">file_download</i> ${i18n.ui.download_btn}`;
+    document.getElementById('ui-tab-fw').innerText = i18n.ui.card_fw;
+    // document.getElementById('ui-title-fw').innerText = i18n.ui.card_fw;
 }
 
 // 渲染參數 (包含自動隱藏邏輯)
@@ -67,7 +94,7 @@ function renderFields(plate) {
     container.innerHTML = '';
 
     const fieldKeys = ['caps', 'bs', 'lshift', 'rshift', 'enter', 'bottom_row'];
-    
+
     // 檢查有無啟用參數
     const hasOptions = fieldKeys.some(key => plate[key] && plate[key].enabled);
 
@@ -93,18 +120,29 @@ function renderFields(plate) {
 }
 
 // 下載 CAD 文件
-window.downloadConfig = async function() {
+window.downloadConfig = async function () {
     const nameIdx = document.getElementById('plate-name-select').value;
     const plate = allPlates[nameIdx];
     const plateName = plate.name.toLowerCase();
 
     const selects = document.querySelectorAll('#options-container select');
     const params = Array.from(selects).map(s => s.value);
-    
+
     // 檔名：如果沒參數就叫 em60.dxf，有參數就拼起來
     const fileName = params.length > 0 ? `${plateName}_${params.join('_')}.dxf` : `${plateName}.dxf`;
     const filePath = `plate/${plateName}/${fileName}`;
 
+    downloadCommom(fileName, filePath);
+};
+
+window.downloadFW = async function (fwIndex) {
+    const fw = allFirmwares[fwIndex];
+    const fileName = fw.file_name;
+    const filePath = `fw/${fileName}`;
+    downloadCommom(fileName, filePath);
+}
+
+window.downloadCommom = async function (fileName, filePath) {
     try {
         const check = await fetch(filePath, { method: 'HEAD' });
         if (!check.ok) {
@@ -118,7 +156,7 @@ window.downloadConfig = async function() {
     } catch (e) {
         mdui.snackbar({ message: 'Error' });
     }
-};
+}
 
 window.changeLang = (lang) => { localStorage.setItem('lang', lang); location.reload(); };
 document.addEventListener('DOMContentLoaded', initApp);

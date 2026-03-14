@@ -1,6 +1,8 @@
 {
     "ui": {
         "title": "MTKB 静电容定位板下载器",
+        "card_plate": "定位板",
+        "card_fw": "固件",
         "plate_label": "1. PCB 型号",
         "params_label": "2. 详细参数",
         "download_btn": "下载定位板",

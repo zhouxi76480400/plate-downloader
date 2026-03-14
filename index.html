@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" />
     <title>MTKB EC Plate Downloader</title>
-    <link rel="stylesheet" href="https://unpkg.com/mdui@1.0.2/dist/css/mdui.min.css"/>
-    <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/mdui@1.0.2/dist/css/mdui.min.css" />
+    <link rel="stylesheet" href="css/main.css" />
 </head>
+
 <body class="mdui-theme-primary-indigo mdui-theme-accent-pink">
 
     <div class="lang-sticky-btn">
-        <button class="mdui-btn mdui-btn-icon mdui-color-white mdui-ripple mdui-shadow-4" mdui-menu="{target: '#lang-menu'}">
+        <button class="mdui-btn mdui-btn-icon mdui-color-white mdui-ripple mdui-shadow-4"
+            mdui-menu="{target: '#lang-menu'}">
             <i class="mdui-icon material-icons">language</i>
         </button>
         <ul class="mdui-menu" id="lang-menu">
@@ -21,36 +24,54 @@
     </div>
 
     <div class="central-card mdui-shadow-12">
+        <!-- 加入tab -->
+        <div class="mdui-tab mdui-tab-full-width mdui-color-theme" mdui-tab>
+            <a href="#tab-plate" class="mdui-ripple">
+                <label id="ui-tab-plate">定位板</label>
+            </a>
+            <a href="#tab-fw" class="mdui-ripple">
+                <label id="ui-tab-fw">固件</label>
+            </a>
+        </div>
+
         <div class="mdui-p-a-3 tab-content">
             <div id="loading-spinner">
                 <div class="mdui-spinner"></div>
             </div>
+            <!-- 第一個 tab-->
+            <div id="tab-plate" class="mdui-p-t-1">
+                <form id="config-form" class="hidden">
+                    <h2 id="ui-title" class="mdui-text-center mdui-m-t-0 mdui-m-b-3 hidden">MTKB</h2>
 
-            <form id="config-form" class="hidden">
-                <h2 id="ui-title" class="mdui-text-center mdui-m-t-0 mdui-m-b-3">MTKB</h2>
-                
-                <div class="option-group">
-                    <label id="ui-plate-label" class="mdui-typo-title mdui-text-color-theme">1. PCB型號</label>
-                    <select class="mdui-select" id="plate-name-select" style="width: 100%"></select>
-                </div>
+                    <div class="option-group">
+                        <label id="ui-plate-label" class="mdui-typo-title mdui-text-color-theme">1. PCB型號</label>
+                        <select class="mdui-select" id="plate-name-select" style="width: 100%"></select>
+                    </div>
 
-                <div id="params-section">
-                    <div class="mdui-divider mdui-m-y-2"></div>
-                    <label id="ui-params-label" class="mdui-typo-title mdui-text-color-theme">2. 詳細參數</label>
-                    <div id="options-container" class="mdui-m-t-1"></div>
-                </div>
+                    <div id="params-section">
+                        <div class="mdui-divider mdui-m-y-2"></div>
+                        <label id="ui-params-label" class="mdui-typo-title mdui-text-color-theme">2. 詳細參數</label>
+                        <div id="options-container" class="mdui-m-t-1"></div>
+                    </div>
 
-                <div class="mdui-m-t-3">
-                    <button type="button" onclick="downloadConfig()" id="ui-download-btn"
+                    <div class="mdui-m-t-3">
+                        <button type="button" onclick="downloadConfig()" id="ui-download-btn"
                             class="mdui-btn mdui-btn-raised mdui-ripple mdui-color-theme-accent mdui-btn-block mdui-btn-lg">
-                        <i class="mdui-icon material-icons mdui-icon-left">file_download</i> 下載定位板
-                    </button>
-                </div>
-            </form>
+                            <i class="mdui-icon material-icons mdui-icon-left">file_download</i> 下載定位板
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- 第二個 tab-->
+            <div id="tab-fw" class="mdui-p-t-1">
+                <div class="mdui-list" id="firmware-list"></div>
+            </div>
         </div>
     </div>
 
     <script src="https://unpkg.com/mdui@1.0.2/dist/js/mdui.min.js"></script>
     <script src="js/main.js"></script>
 </body>
+
 </html>

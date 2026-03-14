@@ -50,5 +50,19 @@
         {
             "name": "gh60"
         }
+    ],
+    "fw": [
+        {
+            "name": "em60v2",
+            "ver": "1.0",
+            "updated": "2026-01-01",
+            "file_name": "em60v2.bin"
+        },
+        {
+            "name": "test",
+            "ver": "1.0",
+            "updated": "2026-01-01",
+            "file_name": "gh60.bin"
+        }
     ]
 }
